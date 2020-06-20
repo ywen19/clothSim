@@ -1,11 +1,17 @@
-# ClothSim
+# C++ ClothSim
 ===
 
 ## Synopsis
 ---
 
+<img src="images/inrun.gif" width="1080">
 
-A particle-based cloth simulation for C++ assignment using NCCA ngl library. The simulation happens in real time.
+A particle-based cloth simulation for C++ assignment using NCCA ngl library with Qt Creator.  
+The simulation happens in real time.  
+As university ngl library is included, the code can't run on other equipments, but just an example.  
+Source codes can be foude in folder **`src`**.  
+Header files can be foude in folder **`include`**.
+
 
 ---
 
@@ -41,7 +47,7 @@ A particle-based cloth simulation for C++ assignment using NCCA ngl library. The
 ---
 
 1. To Download/Clone
-   - You can download the folder or clone with https://github.com/NCCA/cfgaa2019-Ywen219 .
+   - You can download the folder or clone with https://github.com/ywen19/clothSim.git .
 2. Setup
    - Use QtCreator or other building environment to configure the project. Make sure the linking to NGL library is working.
    - Turn off shadow build.
@@ -58,23 +64,6 @@ Particle-based cloth simulation under mass-spring algorithm was chosen for the p
 
 ---
 
-## Research
----
-
-I combined the looping method, the strength calculations and particle structure mainly from these three sources and made changes accordingly.
-
-1. Initial Research
-   - At the initial stage, I looked up the book *'Computer Animation: Algorithms and Techniques'* by Rick Parent as I wanted to do a particle simulation with bullet physics. Later on, I realized that cloth simulation was a better choice to have physics and strings at the same time. I kept particle attributes for updating and claculation from the sample structure in the book.
-   
-2. Spring Force Calculation
-   
-   - A dissertation called 'Implementation of Cloth Simulation that can be used in Games and Animation' by Navneeth Nagaraj, B.Eng. from https://scss.tcd.ie/publications/theses/diss/2016/TCD-SCSS-DISSERTATION-2016-054.pdf was helpful enough to explain all forces needed for the simulation. It showed formulars to calculate spring stregth and also wind force. 
-   
-3. Loop through Particles
-
-   - A very useful tutorial was from https://viscomp.alexandra.dk/?p=147 by Jesper Mosegaard. I learnt how to loop through all particles to calculte spring forces in a more economic way. However, using his loop with mass-spring system resulted in a bias move. So I made changes accordingly for mass-spring model system. 
-   
----
 
 ## Design & Algorithm
 ---
@@ -107,15 +96,7 @@ I combined the looping method, the strength calculations and particle structure 
      - Class: Cloth
        A one-dimension vector was created to store all particles for the simulation. All other classes were instanced in this class for calculating and updating. The main loop through all particles was within this class. The update() method was called by the TimerEvent inside NGLScene.
        
-## Issues
----
 
-1. The collision between  sphere was not entirely matching up (will delay) with the cursor change.
-2. There was no self-collision applied for the cloth particles.
-3. The particles were not surfaced out and rendered as a polygon.
-4. The simulation might produce a floaty result or explode due to coefficients and dynamic factors.
-
----
 
 
 
